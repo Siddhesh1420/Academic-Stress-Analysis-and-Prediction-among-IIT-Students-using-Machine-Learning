@@ -26,10 +26,11 @@ A primary survey-based data analytics project examining stress patterns among 10
 `Python` `Pandas` `Scikit-learn` `Plotly` `Streamlit`
 
 ## Live App
-[Add Streamlit URL here]
+ykfes2czkq9apprqwsnyq8e.streamlit.app
 
 ## Run locally
 ```bash
+pip install requirements.txt
 streamlit run Streamlit/app.py
 ```
 
