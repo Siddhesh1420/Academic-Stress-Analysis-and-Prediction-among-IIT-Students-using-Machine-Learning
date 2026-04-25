@@ -60,7 +60,9 @@ footer,header,#MainMenu{{visibility:hidden}}
 # ── Data & Model ──────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    df = pd.read_csv('cleaned_stress_survey.csv')
+    import os
+    base = os.path.dirname(os.path.abspath(__file__))
+    df = pd.read_csv(os.path.join(base, 'cleaned_stress_survey.csv'))
     df['Sleep_Hours'] = df['Sleep_Hours'].replace('Option 4','Less than 4 hours')
     df['Stress_Level'] = df['Overall_Stress'].apply(
         lambda x: 'Low' if x<=3 else('Medium' if x<=6 else 'High'))
@@ -73,7 +75,9 @@ def load_data():
 
 @st.cache_resource
 def load_model():
-    return joblib.load('../Model/best_model.pkl')
+    import os
+    base = os.path.dirname(os.path.abspath(__file__))
+    return joblib.load(os.path.join(base, 'best_model.pkl'))
 
 df  = load_data()
 mdl = load_model()
